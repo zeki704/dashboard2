@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %} Ishchilar | List {% endblock %}
+
+{% block content %}
+<div class="content">
+	            <div class="container-fluid">
+	                <div class="row">
+	                    <div class="col-md-12">
+	                        <div class="card">
+	                            <div class="card-content">
+	                                <div class="toolbar">
+	                                    <!--Here you can write extra buttons/actions for the toolbar-->
+	                                </div>
+	                                <table id="bootstrap-table" class="table">
+	                                    <thead>
+	                                        <th data-field="state">№</th>
+	                                        <th data-field="id" class="text">Ismi</th>
+	                                    	<th data-field="name" data-sortable="true">Familiyasi</th>
+	                                    	<th data-field="country" data-sortable="true">Lavozimi</th>
+	                                    	<th data-field="actions" class="td-actions">Actions</th>
+	                                    </thead>
+	                                    <tbody>
+											{% for i in ishchilar %}
+	                                        <tr>
+	                                            <td>{{ forloop.counter}}</td>
+	                                        	<td>{{i.ism}}</td>
+	                                        	<td>{{i.familiya}}</td>
+	                                        	<td>{{i.lavozimi}}</td>
+												 <td class="td-actions">
+													<a href="{% url 'ishchi_det' pk=i.id %}" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+														<i class="ti-user"></i>
+													</a>
+													<a href="{% url 'ishchi_edit' pk=i.id %}" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+														<i class="ti-pencil-alt"></i>
+													</a>
+
+												</td>
+	                                        </tr>
+										{% endfor %}
+									<a href="{% url 'ishchi_add' %}">
+								<button type="button" class="btn btn-wd btn-success btn-fill">
+									<span class="btn-label">
+										<i class="fa fa-plus"></i>
+									</span>
+									Yangi Qo'shish
+								</button>
+							</a>
+
+	                                    </tbody>
+	                                </table>
+	                            </div>
+	                        </div><!--  end card  -->
+	                    </div> <!-- end col-md-12 -->
+	                </div> <!-- end row -->
+	            </div>
+	        </div>
+{% endblock %}

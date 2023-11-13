@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %} Userlar | List {% endblock %}
+
+{% block content %}
+<div class="content">
+	            <div class="container-fluid">
+	                <div class="row">
+	                    <div class="col-md-12">
+	                        <div class="card">
+	                            <div class="card-content">
+	                                <div class="toolbar">
+	                                    <!--Here you can write extra buttons/actions for the toolbar-->
+	                                </div>
+	                                <table id="bootstrap-table" class="table">
+	                                    <thead>
+	                                        <th data-field="state">№</th>
+	                                        <th data-field="id" class="text">Ismi</th>
+	                                    	<th data-field="name" data-sortable="true">Familiyasi</th>
+	                                    	<th data-field="salary" data-sortable="true">Email</th>
+	                                    	<th data-field="country" data-sortable="true">Permissions</th>
+	                                    	<th data-field="actions" class="td-actions">Actions</th>
+	                                    </thead>
+	                                    <tbody>
+											{% for i in users %}
+												{% if i != request.user %}
+	                                        <tr>
+	                                            <td>{{ forloop.counter}}</td>
+	                                        	<td>{{i.name}}</td>
+	                                        	<td>{{i.familiya}}</td>
+	                                        	<td>{{i.email}}</td>
+	                                        	<td>{{i.perm}}</td>
+												 <td class="td-actions">
+													{% if not i.perm %}
+													 <a href="{% url 'user_chp' pk=i.id status=1 %}" rel="tooltip" title="ruxsat berish" class="btn btn-success btn-xs">
+														<i class="ti-thumb-up"></i>
+													</a>
+													 {% endif %}
+													 {% if i.perm %}
+													 <a href="{% url 'user_chp' pk=i.id status=0 %}" rel="tooltip" title="ruxsatni olish" class="btn btn-danger btn-xs">
+														<i class="ti-thumb-down"></i>
+													</a>
+													 {% endif %}
+												</td>
+	                                        </tr>
+											{% endif %}
+										{% endfor %}
+
+
+	                                    </tbody>
+	                                </table>
+	                            </div>
+	                        </div><!--  end card  -->
+	                    </div> <!-- end col-md-12 -->
+	                </div> <!-- end row -->
+	            </div>
+	        </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+
+
+{% extends 'base.html'%}
+
+{% block title %} Mashina | Forms {% endblock %}
+
+{% block content %}
+<form class="form-control" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group  col-md-6">
+        <label>Nomi</label>
+        {{ form.name }}
+    </div>
+    <div class="form-group  col-md-6">
+        <label>Davlat raqami</label>
+        {{ form.dav_raqami }}
+    </div>
+    <div class="form-group  col-md-6">
+        <label>rangi</label>
+        {{ form.rangi }}
+    </div>
+    <div class="form-group  col-md-6">
+        <label>Ishlab chiqarilgan yili</label>
+        {{ form.yili }}
+    </div>
+
+    <a href="{% url 'mashina' %}">
+         <button
+             type="button" class="btn btn-wd btn-default btn-fill btn-move-left">
+                <span class="btn-label">
+                    <i class="ti-angle-left"></i>
+                </span>
+                Back to list
+        </button>
+    </a>
+     <button
+         type="submit" class="btn btn-wd btn-success ">
+            <span class="btn-label">
+                <i class="fa fa-save"></i>
+            </span>
+            Saqlash
+    </button>
+
+
+</form>
+
+{% endblock %}

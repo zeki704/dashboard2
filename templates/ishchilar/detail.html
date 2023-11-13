@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %} Detail | | Ishchi {% endblock %}
+
+{% block content %}
+<div class="content">
+	            <div class="container-fluid">
+	                <div class="row">
+	                    <div class="col-md-12">
+	                        <div class="card">
+	                            <div class="card-content">
+	                                <div class="toolbar">
+	                                    <!--Here you can write extra buttons/actions for the toolbar-->
+	                                </div>
+	                                <table id="bootstrap-table" class="table">
+	                                    <thead>
+	                                        <th data-field="state">Key</th>
+	                                        <th data-field="id" class="text">Value</th>
+
+	                                    </thead>
+	                                    <tbody>
+	                                        <tr>
+	                                            <td>Ismi</td>
+	                                        	<td>{{root.ism}}</td>
+
+	                                        </tr>
+											<tr>
+	                                            <td>Familiyasi</td>
+	                                        	<td>{{root.familiya}}</td>
+
+	                                        </tr>
+											<tr>
+	                                            <td>Tug'ilgan yili</td>
+	                                        	<td>{{root.tugilgan_yil}}</td>
+
+	                                        </tr>
+											<tr>
+	                                            <td>Lavozimi</td>
+	                                        	<td>{{root.lavozimi}}</td>
+
+	                                        </tr>
+											<tr>
+	                                            <td>Tel</td>
+	                                        	<td>{{root.tel}}</td>
+
+	                                        </tr>
+
+	                                    </tbody>
+	                                </table>
+									<a href="{% url 'ishchi' %}">
+									 <button
+										 type="button" class="btn btn-wd btn-default btn-fill btn-move-left">
+											<span class="btn-label">
+												<i class="ti-angle-left"></i>
+											</span>
+											Back to list
+									</button>
+									</a>
+									<a href="{% url 'ishchi_edit' pk=root.id %}">
+									 <button
+										 type="button" class="btn btn-wd btn-success btn-fill btn-move-left">
+											<span class="btn-label">
+												<i class="fa fa-edit"></i>
+											</span>
+											Tahrirlash
+									</button>
+									</a>
+									<a class="dropdown-item" data-toggle="modal" data-target="#deleteModal" style="color: #000">
+									 <button
+										 type="button" class="btn btn-wd btn-danger btn-fill btn-move-left">
+											<span class="btn-label">
+												<i class="fa fa-trash"></i>
+											</span>
+											Delete
+									</button>
+									</a>
+	                            </div>
+
+	                        </div><!--  end card  -->
+
+	                    </div> <!-- end col-md-12 -->
+	                </div> <!-- end row -->
+	            </div>
+	        </div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">O'chirish</h5>
+                    <button class="close btn-rotate" type="button" data-dismiss="modal" aria-label="Close">
+						<i class="fa fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">Rostdan ham ({{ root.ism}}) ni o'chirmoqchimisiz?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-info" type="button" data-dismiss="modal">Yo'q</button>
+                    <a class="btn btn-danger" href="{% url 'ishchi_del' pk=root.id %}">Ha</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

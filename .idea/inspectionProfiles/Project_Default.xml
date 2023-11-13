@@ -1,0 +1,31 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N801" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="sayt_project.models.Category.objects" />
+          <option value="saytnews.models.Category.objects" />
+          <option value="app1.models.Category.objects" />
+          <option value="app1.models.News.__getitem__" />
+          <option value="app2.models.News.objects" />
+          <option value="v1.models.Ishchi.objects" />
+          <option value="v1.models.Ishchi.id" />
+          <option value="v1.services.site.Ishchi.objects" />
+          <option value="v1.services.site.Ishchi.id" />
+          <option value="v1.models.auth.User.objects" />
+          <option value="rest_framework.authtoken.models.Token.objects" />
+          <option value="bot.models.TgUser.objects" />
+          <option value="bot.models.Maxsulot.objects" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

@@ -1,0 +1,51 @@
+
+{% extends 'base.html'%}
+
+{% block title %} Ishchi | Forms {% endblock %}
+
+{% block content %}
+<form class="form-control" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group  col-md-4">
+        <label>Ism</label>
+        {{ form.ism }}
+    </div>
+    <div class="form-group  col-md-4">
+        <label>Familiyasi</label>
+        {{ form.familiya }}
+    </div>
+    <div class="form-group  col-md-4">
+        <label>Tug'ilgan vaqti</label>
+        {{ form.tugilgan_yil }}
+    </div>
+    <div class="form-group  col-md-6">
+        <label>Lavozimi</label>
+        {{ form.lavozimi }}
+    </div>
+    <div class="form-group  col-md-6">
+        <label>Telefon raqam</label>
+        {{ form.tel }}
+    </div>
+
+    <a href="{% url 'ishchi' %}">
+         <button
+             type="button" class="btn btn-wd btn-default btn-fill btn-move-left">
+                <span class="btn-label">
+                    <i class="ti-angle-left"></i>
+                </span>
+                Back to list
+        </button>
+    </a>
+     <button
+         type="submit" class="btn btn-wd btn-success ">
+            <span class="btn-label">
+                <i class="fa fa-save"></i>
+            </span>
+            Saqlash
+    </button>
+
+
+</form>
+
+{% endblock %}
